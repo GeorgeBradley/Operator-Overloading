@@ -29,3 +29,21 @@ MyString::MyString(const MyString& source)
 	str = new char[std::strlen(source.str) + 1];
 	std::strcpy(str, source.str);
 }
+
+MyString::~MyString() {
+	delete[] str;
+}
+
+void MyString::Display() const {
+	std::cout << str << " : " << Get_Length() << std::endl;
+}
+
+int MyString::Get_Length()const
+{
+	return std::strlen(str);
+
+}
+const char* MyString::Get_Str() const 
+{
+	return str; 
+}
