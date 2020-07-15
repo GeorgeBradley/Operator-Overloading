@@ -8,6 +8,7 @@ int main()
     MyString EmptyString; //Will call the no args constructor
     MyString George("George");
     MyString GeorgeCopy = George;
+    EmptyString = George;
 
     EmptyString.Display();
     George.Display();
