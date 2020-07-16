@@ -62,7 +62,7 @@ MyString& MyString::operator=(const MyString& rhs) {
 //Move assignment
 MyString& MyString::operator=(MyString&& rhs) 
 {
-	std::cout << "Move assignment." << std::endl;
+	std::cout << "Move assignment for " << str << std::endl;
 	if (this == &rhs) {
 		return *this;
 	}
@@ -87,4 +87,21 @@ int MyString::Get_Length()const
 const char* MyString::Get_Str() const 
 {
 	return str;
+}
+//Overloaded insertion operator
+std::ostream& operator<<(std::ostream& os, const MyString& rhs) 
+{
+	os << rhs.str;
+	return os;
+
+}
+//Overloaded extration operator
+std::istream& operator>>(std::istream& in, MyString& rhs) 
+{
+	char* buff = new char[1000];
+	in >> buff;
+	rhs = MyString(buff);
+	delete [] buff;
+	return in;
+
 }

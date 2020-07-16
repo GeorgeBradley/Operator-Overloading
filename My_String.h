@@ -4,6 +4,8 @@
 
 class MyString
 {
+	friend std::ostream& operator<<(std::ostream& os, const MyString& rhs);
+	friend std::istream& operator>>(std::istream& in, MyString& rhs);
 private:
 	char* str;
 
